@@ -4,6 +4,8 @@ import './App.css';
 import FirstComponent from './components/FirstComponent';
 import AnotherFuncion from './components/AnotherFuncion';
 import Images from './components/Images';
+import Hooks from './components/Hooks';
+import List from './components/List';
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
       <FirstComponent />
       <AnotherFuncion />
       <Images />
+      <Hooks />
+      <List />
     </div>
   );
 }
