@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState, useEffect} from 'react';
-import {BsTresh, BsBookMarkCheck, BsBookMarkCheckFill} from 'react-icons/bs'
+import {BsBookmarkX, BsBookmarkStar, BsBookMarkCheckFill, BsBookmarkFill} from 'react-icons/bs';
 
 const API ="http://localhost:5000"
 
@@ -21,7 +21,23 @@ function App() {
   const [title, setTitle] = useState("") // O titulo da task
   const [time, setTime] = useState("") //Horario da task
   const [todos, setTodos] = useState([]) //as proprias tarefas e imprimir elas
-  const [loading, setLoadin] = useState(false) //Feedback pro usuario
+  const [loading, setLoading] = useState(false) //Feedback pro usuario
+
+  useEffect(() => {
+    const loadData = async() => {
+      setLoading(true)
+      const res = await fetch(API+"/todos") //o padrao ja é um get
+      .then((res) => res.json())
+      .then((data) => data)
+      .catch((err) => console.log(err)); 
+
+      setLoading(false);
+
+      setTodos(res) 
+    };
+
+    loadData();
+  }, [])
 
   const handleSubmit = async(e) => {
     e.preventDefault()
@@ -41,12 +57,17 @@ function App() {
       }
     })
 
+    setTodos((prevState) => [...prevState, todo]); //Apos inserir dados recarregar a pagina sem atualizar ela
+
     //Enviar para a API
     console.log(todo)
     setTitle("")
     setTime("")
   };
 
+  if(loading){
+    return <p>Carregando...</p>
+  }
 
   return(
     <div className="App">
@@ -83,7 +104,27 @@ function App() {
       </div>
       <div className="list_todo">
         <h2>Lista de tarefas: </h2>
-        {todos.length === 0 && <p>Não há tarefas</p>}
+        {todos.length === 0 && 
+          <p>Não há tarefas</p>}
+        {todos.map(
+          (todo) => (
+            <div 
+              className='todo'
+              key = {todo.id}
+            >
+              <h3 className={todo.done ? "todo-done" : ""}>{todo.title}</h3>
+              <p>Duração: {todo.time}</p>
+              <div className='actions'>
+                <span>
+                  Teste 
+                  {!todo.done ? <BsBookmarkStar /> : <BsBookmarkX />}
+                  
+                </span>
+                
+              </div>
+            </div>
+          )
+        )}
       </div>
       {/*
       <h2>Hello react</h2>
