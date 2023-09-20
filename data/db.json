@@ -1,18 +1,6 @@
 {
   "todos": [
     {
-      "id": 0.08314593612674748,
-      "title": "Tarefa 1",
-      "time": "3",
-      "done": false
-    },
-    {
-      "id": 0.6075602951767032,
-      "title": "Tarefa 2",
-      "time": "Descrição da tarefa 2",
-      "done": false
-    },
-    {
       "id": 0.7932592242271486,
       "title": "Marcar Médico",
       "time": "1h",

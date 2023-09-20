@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState, useEffect} from 'react';
-import {BsBookmarkX, BsBookmarkStar, BsBookMarkCheckFill, BsBookmarkFill} from 'react-icons/bs';
+import {BsBookmarkX, BsBookmarkStar, BsBookMarkCheckFill, BsBookmarkFill, BsFillBackspaceFill} from 'react-icons/bs';
 
 const API ="http://localhost:5000"
 
@@ -65,6 +65,30 @@ function App() {
     setTime("")
   };
 
+  const handleEdit = async (todo) => {
+    todo.done = !todo.done;
+
+    const data = await fetch(API + "/todos/" + todo.id, {
+      method: "PUT",
+      body: JSON.stringify(todo),
+      headers: {
+        "Content-Type" : "application/json",
+      }
+    });
+
+    setTodos((prevState) => prevState.map((t) => (t.id === data.id ? (t = data) : t)))
+  }
+
+  const handleDelete = async(id) => {
+  
+    await fetch(API + "/todos/" + id, {
+      method: "DELETE",
+      
+    });
+
+    setTodos((prevState) => prevState.filter((todos) => todos.id !== id));
+  };
+
   if(loading){
     return <p>Carregando...</p>
   }
@@ -115,10 +139,9 @@ function App() {
               <h3 className={todo.done ? "todo-done" : ""}>{todo.title}</h3>
               <p>Duração: {todo.time}</p>
               <div className='actions'>
-                <span>
-                  Teste 
+                <span onClick={() => handleEdit(todo)}>
                   {!todo.done ? <BsBookmarkStar /> : <BsBookmarkX />}
-                  
+                  <BsFillBackspaceFill onClick={() => handleDelete(todo.id)  } /> {/*no arrow function é só executado quando clicado*/}
                 </span>
                 
               </div>
