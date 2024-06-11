@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# To Do List
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Aplicação web para gerenciamento de projetos!
 
-## Available Scripts
+### Deploy: [To Do List](https://todolist-chi-fawn.vercel.app/)
 
-In the project directory, you can run:
+## Descrição
+To Do List é uma aplicação web desenvolvida em React.js que permite criar uma lista de tarefas pessoais! com funções básicas de  `Create, Read, e Delete`.
 
-### `npm start`
+## Instalação
+Para instalar e rodar a aplicação localmente, siga os passos abaixo no seu terminal de comandos:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+git clone git@github.com:wesley-moraes/todolist.git
+cd todolist
+npm i
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Para rodar a aplicação localmente, inicie o servidor React com o comando:
 
-### `npm test`
+```bash
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+O seu próprio terminal dirá como acessar geralmente em *http://localhost:3000*
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+A base de dados está configurada para ser acessada via um Web-Service. Caso deseje rodar a base de dados localmente, altere as rotas para apontarem para o servidor local e execute o json-server:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Para rodar o json-server, execute o comando:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm run backend
+```
 
-### `npm run eject`
+Você pode encontrar esses comandos no arquivo `package.json`.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Configuração de Rotas
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Para alternar as rotas do Web-Service, substitua a variável API que está no App.js. Caso você queira, por exemplo, trabalhar com os dados localmente.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+API = "https://todolist-db-0luf.onrender.com"
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Hospedagem
+A aplicação está hospedada no Vercel e o Web-Service está hospedado no Render para garantir que tudo esteja disponível online.
 
-## Learn More
+O repositório da base de dados pode ser [acessado aqui](https://github.com/wesley-moraes/todolist-db)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Contato
+Para mais informações ou para reportar problemas, entre em contato:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Email: wesley.moraes@example.com
+- GitHub: [wesley-moraes](https://github.com/wesley-moraes/)
+- LinkedIn: [Wesley Moraes](https://www.linkedin.com/in/wesley-moraes/)
